@@ -3,12 +3,12 @@ Base on your current location find nearest shop and resturant locations.
 
 <img src="img/map_2.jpg" width="30%">
 
-## Related project recommendations:
+### Related project recommendations:
 * [React native amap geolocation](https://github.com/qiuxiang/react-native-amap-geolocation)
 * [React-native-amap3d](https://www.npmjs.com/package/react-native-amap3d)
 * [Geolib](https://www.npmjs.com/package/geolib)
 
-## Add Gaode Key:
+### Add Gaode Key:
 * Get key [High German Key](https://lbs.amap.com/api/android-sdk/guide/create-project/get-key)
 * Add the following code in to `AndroidManifest.xml` file within `<application>`:
 ```xml
@@ -18,7 +18,7 @@ Base on your current location find nearest shop and resturant locations.
 />
 ```
 
-## Get current Location
+### Get current Location
 Get current location and `setState` latitude & longitude
 
 ```JavaScript
@@ -45,7 +45,7 @@ Get current location and `setState` latitude & longitude
   });
 ```
 
-## Calculate distance from 'gelib'
+### Calculate distance from 'gelib'
 `ResturantData` data array filter with 500m distance
 
 ```JavaScript
@@ -71,7 +71,7 @@ Get current location and `setState` latitude & longitude
 ```
 
 
-## Map View
+### Map View
 
 ```JavaScript
      <MapView 
@@ -87,7 +87,7 @@ Get current location and `setState` latitude & longitude
      >
 ```
 
-## Resturant & Shop markers from array
+### Resturant & Shop markers from array
 
 ```JavaScript
       {this.state.ResturantData.map(item => (
