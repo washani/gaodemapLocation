@@ -19,7 +19,7 @@ Base on your current location find nearest shop and resturant locations.
 ```
 ## Get current Location
 Get current location and `setState` latitude & longitude
-```javascrit
+```typesript
     await PermissionsAndroid.requestMultiple([
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
       PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
