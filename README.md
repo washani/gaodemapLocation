@@ -48,7 +48,7 @@ Get current location and `setState` latitude & longitude
 ## Calculate distance from 'gelib'
 `ResturantData` data array filter with 500m distance
 
-```TypeScript
+```JavaScript
   let {region } = this.state;
   let markersRest = this.state.ResturantData.filter(markerrest => {
       let distance = this.calculateLocDistance(region.latitude, region.longitude, markerrest.rest_latitude, markerrest.rest_longitude);
@@ -59,6 +59,17 @@ Get current location and `setState` latitude & longitude
        ResturantData: markersRest,
     })
 ```
+### Calculation from `geolib` code
+
+```JavaScript
+   calculateLocDistance(origingLat, origingLon, markerLocLat, markerLocLon) {
+     return geolib.getDistance(
+       {latitude: origingLat, longitude: origingLon},
+       {latitude: markerLocLat, longitude: markerLocLon}
+     );
+   }
+```
+
 
 ## Map View
 
