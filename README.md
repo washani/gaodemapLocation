@@ -17,9 +17,11 @@ Base on your current location find nearest shop and resturant locations.
  android:value = "Your High German Key "
 />
 ```
+
 ## Get current Location
 Get current location and `setState` latitude & longitude
-```typesript
+
+```JavaScript
     await PermissionsAndroid.requestMultiple([
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
       PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
@@ -41,4 +43,56 @@ Get current location and `setState` latitude & longitude
                   },
       })
   });
+```
+
+## Calculate distance from 'gelib'
+`ResturantData` data array filter with 500m distance
+
+```TypeScript
+  let {region } = this.state;
+  let markersRest = this.state.ResturantData.filter(markerrest => {
+      let distance = this.calculateLocDistance(region.latitude, region.longitude, markerrest.rest_latitude, markerrest.rest_longitude);
+      return distance <= 500;
+    });
+
+  this.setState({
+       ResturantData: markersRest,
+    })
+```
+
+## Map View
+
+```JavaScript
+     <MapView 
+        style={StyleSheet.absoluteFill}
+        mapType={MapType.Bus}
+        showsTraffic={this.state.showsTraffic}
+        region={{
+          latitude:this.state.latitude_ini,
+          longitude:this.state.longitude_ini,
+          latitudeDelta:0.0069,
+          longitudeDelta:0.0069,
+        }}
+     >
+```
+
+## Resturant & Shop markers from array
+
+```JavaScript
+      {this.state.ResturantData.map(item => (
+          <MapView.Marker
+            title={"Name: " + item.rest_name}
+            coordinate={{
+              latitude:JSON.parse(item.rest_latitude),
+              longitude:JSON.parse(item.rest_longitude),
+            }}
+            icon={() => (
+            <View >
+              <Image source={require('./img/foodlocation.png')} style={{height: 25, width:25 }} />
+            </View>
+          )}
+          >
+          </MapView.Marker>
+            
+       ))}
 ```
