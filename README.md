@@ -1,2 +1,2 @@
-# gaodemapLocation
-React Native nearest location shop &amp; restaurant (Gaode map)
+# React Native nearest location shop &amp; restaurant
+Base on your current location find nearest shop and resturant locations.
