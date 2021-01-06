@@ -17,3 +17,28 @@ Base on your current location find nearest shop and resturant locations.
  android:value = "Your High German Key "
 />
 ```
+## Get current Location
+Get current location and `setState` latitude & longitude
+```javascrit
+    await PermissionsAndroid.requestMultiple([
+      PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      PermissionsAndroid.PERMISSIONS.ACCESS_COARSE_LOCATION,
+    ]);
+ 
+    await init({
+      android: "Your High German Key"
+    });
+
+    await Geolocation.getCurrentPosition(({ coords }) => {
+      this.setState({
+          latitude_ini:coords.latitude,
+          longitude_ini:coords.longitude,
+          region: {
+                    latitude:coords.latitude,
+                    longitude:coords.longitude,
+                    latitudeDelta:0.0069,
+                    longitudeDelta:0.0069,
+                  },
+      })
+  });
+```
